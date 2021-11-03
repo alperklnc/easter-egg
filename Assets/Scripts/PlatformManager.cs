@@ -23,6 +23,7 @@ public class PlatformManager : MonoBehaviour
 
     public void CreatePlatform(int length) {
         // Create Ground
+        /*
         for(int z = -2; z < length; z+=2) {
             Vector3 pos = new Vector3(0, 0, z);
             GameObject ground_ = Instantiate(groundPrefab, pos, Quaternion.identity);
@@ -30,7 +31,7 @@ public class PlatformManager : MonoBehaviour
 
             list.Add(ground_);
         }
-
+        */
         /*
         // Create Finish Line
         Vector3 position = new Vector3(length + 0.75f, -1.5f, 0);

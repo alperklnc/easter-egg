@@ -9,11 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float smoothSpeed = 0.125f;
 
     [SerializeField] Vector3 offset;
-
-    private void Start() {
-
-    }
-
+    
     private void Update()
     {
         if (GameManager.Instance.IsPlaying())

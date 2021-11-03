@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -12,41 +13,36 @@ namespace DefaultNamespace
 
         [SerializeField] float range = 2f;
         
-        private void Start()
-        {
-            //animator = GetComponentInChildren<Animator>();
-
-            //LevelManager.OnLevelLoad += OnLevelLoad;
-        }
-
-        /*
-        private void OnLevelLoad(Level level) {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            tailTarget.position = new Vector3(-0.14f, 0.73f, 0);
-        
-            foxAnimator.SetTrigger("Reset");
-            StopAllCoroutines();
-        }
-        */
-        private void Update() {
-
-        }
-
         public void Move(float horizontalInput) {
-            if(horizontalInput != 0 && GameManager.Instance.IsPlaying()) {
-                if(transform.position.x > range) {
-                    transform.position = new Vector3(range, transform.position.y, transform.position.z);
+            if(horizontalInput != 0 && GameManager.Instance.IsPlaying())
+            {
+                var position = transform.position;
+
+                if(position.x > range)
+                {
+                    position.x = range;
                 }
-                if(transform.position.x < -range) {
-                    transform.position = new Vector3(-range, transform.position.y, transform.position.z);
+                if(position.x < -range) {
+                    position.x = -range;
                 }
+
+                transform.position = position;
                 
                 transform.Translate(horizontalInput * verticalSpeed * Time.deltaTime, 0, horizontalSpeed * Time.deltaTime, Space.World);
                 transform.Rotate(new Vector3(rotationSpeed,0, 0) * Time.deltaTime);
-                //transform.RotateAround(transform.position, transform.right, Time.deltaTime * rotationSpeed);
-                //animator.SetFloat("Speed", 1);
-            } else {
-                //animator.SetFloat("Speed", 0);
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Cleaner"))
+            {
+                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial("Default");
+            }
+            
+            else if (other.CompareTag("Painter"))
+            {
+                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Painter>().materialName);
             }
         }
     }
