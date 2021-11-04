@@ -8,7 +8,7 @@ public class GeneralController
     //private static Stack<GameObject> easterEggList;
     private GameObject tail=null;
     private GameObject player;
-    private float baseDistance = 0.8f;
+    private float baseDistance = 0.6f;
     private float baseSmoothness = 20f;
     private static List<GameObject> eggList;
    
@@ -37,7 +37,6 @@ public class GeneralController
     public void AddEasterEgg(GameObject easterEgg)
     {
         EasterEggMovement easterEggMovement = easterEgg.AddComponent<EasterEggMovement>();
-        easterEggMovement.SetSpeedMult(eggList.Count + 1);
         easterEggMovement.SetSmoothness(baseSmoothness * (eggList.Count + 1));
         
         if (tail == null)
@@ -47,7 +46,7 @@ public class GeneralController
 
         eggList.Add(easterEgg);
         easterEggMovement.SetFollowDistance(baseDistance * eggList.Count);
-        easterEgg.transform.position = new Vector3(player.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + baseDistance * eggList.Count);
+        easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + baseDistance * eggList.Count);
         tail = easterEgg;
     }
 

@@ -6,18 +6,8 @@ using UnityEngine;
 
 public class EasterEggBehaviour : MonoBehaviour
 {
-    [SerializeField] float rotationSpeed = 3f;
-    
     private bool isInGroup = false;
-
-    private void Update()
-    {
-        if (isInGroup)
-        {
-            transform.Rotate(new Vector3(rotationSpeed,0, 0) * Time.deltaTime);
-        }
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !isInGroup)
