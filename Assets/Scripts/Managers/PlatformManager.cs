@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlatformManager : MonoBehaviour
 {
     [Header("GameObjects")]
-    [SerializeField] GameObject ground;
+    [SerializeField] GameObject groundParent;
     [SerializeField] GameObject finish;
 
     [Header("Prefabs")]
     [SerializeField] GameObject groundPrefab;
     [SerializeField] GameObject finishPrefab;
 
+    [Space]
+    [SerializeField] private int offset;
+    [SerializeField] private int prefabLength;
+    
     List<GameObject> list = new List<GameObject>();
 
     public void RecreatePlatform(int length) {
@@ -23,15 +27,14 @@ public class PlatformManager : MonoBehaviour
 
     public void CreatePlatform(int length) {
         // Create Ground
-        /*
-        for(int z = -2; z < length; z+=2) {
+        for(int z = -offset; z < length; z+=prefabLength) {
             Vector3 pos = new Vector3(0, 0, z);
-            GameObject ground_ = Instantiate(groundPrefab, pos, Quaternion.identity);
-            ground_.transform.SetParent(ground.transform);
+            GameObject ground = Instantiate(groundPrefab, pos, Quaternion.identity);
+            ground.transform.SetParent(groundParent.transform);
 
-            list.Add(ground_);
+            list.Add(ground);
         }
-        */
+
         /*
         // Create Finish Line
         Vector3 position = new Vector3(length + 0.75f, -1.5f, 0);
