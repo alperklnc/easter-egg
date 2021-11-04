@@ -4,10 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cleaner
   - Painter
   - Printer
-  - Rubber
+  - EasterEgg
   layers:
   - Default
   - TransparentFX
