@@ -13,9 +13,12 @@ public class EasterEggBehaviour : MonoBehaviour
         if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !IsInGroup)
         {
             IsInGroup = true;
-            GeneralController.Instantiate().AddEasterEgg(gameObject);
+            EggStackManager.Instance.AddEasterEgg(gameObject);
         }
-        
+        else if (other.CompareTag("Breaker"))
+        {
+            EggStackManager.Instance.RemoveEasterEgg(gameObject);
+        }
         else if (other.CompareTag("Painter"))
         {
             GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Painter>().materialName);

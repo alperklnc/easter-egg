@@ -7,7 +7,6 @@ namespace DefaultNamespace
     {
         private Rigidbody rb;
         
-        private GeneralController controller;
         private CharacterController characterController;
         private float offset = 0.01f;
         
@@ -24,7 +23,6 @@ namespace DefaultNamespace
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
-            controller = GeneralController.Instantiate();
             characterController = GetComponent<CharacterController>();
         }
 
@@ -33,7 +31,7 @@ namespace DefaultNamespace
             characterController.Move(moveDirection * Time.deltaTime);
             moveDirection = Vector3.zero;
             
-            controller.MoveEggs();
+            EggStackManager.Instance.MoveEggs();
         }
 
         public void Move(float horizontalInput) {

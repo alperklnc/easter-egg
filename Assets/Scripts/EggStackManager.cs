@@ -2,47 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneralController
+public class EggStackManager : MonoBehaviour
 {
-    // Singleton Haline Getirilecek
-    //private static Stack<GameObject> easterEggList;
-    private GameObject tail=null;
-    private GameObject player;
-    private float baseDistance = 0.6f;
-    private float baseSmoothness = 20f;
+    #region Variables
+    
+    [SerializeField] GameObject player;
+    
+    [SerializeField] float baseDistance = 0.6f;
+    [SerializeField] float baseSmoothness = 20f;
+    
+    private GameObject tail;
     private static List<GameObject> eggList;
-   
-    private static GeneralController controller;
+    
+    #endregion
+    
+    #region Singleton
 
-    private GeneralController() { }
+    public static EggStackManager Instance { get; private set; }
 
-    public static GeneralController Instantiate()
+    private void Awake()
     {
-        if (controller == null)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
         {
             eggList = new List<GameObject>();
-            controller = new GeneralController();
+            Instance = this;
         }
-            
-        return controller;
-    }  
-
-    public GameObject GetPlayer()
-    {
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
-        return player;
     }
+
+    #endregion
+
+    #region Stack Adjustment
 
     public void AddEasterEgg(GameObject easterEgg)
     {
         EasterEggMovement easterEggMovement = easterEgg.AddComponent<EasterEggMovement>();
         easterEggMovement.SmoothTime = baseSmoothness * (eggList.Count + 1);
         
-        if (tail == null)
-        {
-            tail = GetPlayer();
-        }
+        if (tail == null) tail = player;
 
         eggList.Add(easterEgg);
         easterEggMovement.Distance = baseDistance * eggList.Count;
@@ -50,6 +50,16 @@ public class GeneralController
         tail = easterEgg;
     }
 
+    public void RemoveEasterEgg(GameObject easterEgg)
+    {
+        if(!eggList.Remove(easterEgg))
+            Debug.Log("Couldn't remove " + easterEgg);
+    }
+
+    #endregion
+
+    #region Stack Movement
+    
     public void MoveEggs()
     {
         foreach(GameObject egg in eggList)
@@ -58,5 +68,6 @@ public class GeneralController
             easterEggMovement.Movement(player.transform.position);
         } 
     }
-    
+
+    #endregion
 }
