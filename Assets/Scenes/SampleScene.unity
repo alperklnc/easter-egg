@@ -873,7 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1241792096}
-  baseDistance: 0.6
+  baseDistance: 0.5
   baseSmoothness: 20
 --- !u!4 &869314876
 Transform:

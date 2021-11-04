@@ -8,13 +8,11 @@ namespace DefaultNamespace
         private Rigidbody rb;
         
         private CharacterController characterController;
-        private float offset = 0.01f;
-        
+
         Animator animator;
 
         [SerializeField] float horizontalSpeed = 2f;
         [SerializeField] float verticalSpeed = 3f;
-        
 
         [SerializeField] float range = 2f;
 
@@ -30,8 +28,6 @@ namespace DefaultNamespace
         {
             characterController.Move(moveDirection * Time.deltaTime);
             moveDirection = Vector3.zero;
-            
-            EggStackManager.Instance.MoveEggs();
         }
 
         public void Move(float horizontalInput) {
@@ -50,9 +46,6 @@ namespace DefaultNamespace
                 transform.position = position;
 
                 moveDirection = new Vector3(horizontalInput * verticalSpeed, 0, horizontalSpeed);
-                
-                //transform.Translate(horizontalInput * verticalSpeed * Time.deltaTime, 0, horizontalSpeed * Time.deltaTime, Space.World);
-                //transform.Rotate(new Vector3(rotationSpeed,0, 0) * Time.deltaTime);
             }
         }
     }

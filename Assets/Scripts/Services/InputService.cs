@@ -4,7 +4,7 @@ using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class InputHandler : MonoBehaviour
+public class InputService : MonoBehaviour
 {
     [SerializeField] VariableJoystick variableJoystick;
 

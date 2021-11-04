@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,8 +60,13 @@ public class EggStackManager : MonoBehaviour
     #endregion
 
     #region Stack Movement
-    
-    public void MoveEggs()
+
+    private void Update()
+    {
+        MoveEggs();
+    }
+
+    private void MoveEggs()
     {
         foreach(GameObject egg in eggList)
         {
