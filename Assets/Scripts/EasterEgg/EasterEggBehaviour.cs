@@ -1,27 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
+using Managers;
+using Services;
 using UnityEngine;
 
-public class EasterEggBehaviour : MonoBehaviour
+namespace EasterEgg
 {
-    public bool IsInGroup { get; set; } = false;
-    
-    private void OnTriggerEnter(Collider other)
+    public class EasterEggBehaviour : MonoBehaviour
     {
-        if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !IsInGroup)
+        public bool IsInGroup { get; set; } = false;
+    
+        private void OnTriggerEnter(Collider other)
         {
-            IsInGroup = true;
-            EggStackManager.Instance.AddEasterEgg(gameObject);
-        }
-        else if (other.CompareTag("Breaker"))
-        {
-            EggStackManager.Instance.RemoveEasterEgg(gameObject);
-        }
-        else if (other.CompareTag("Painter"))
-        {
-            GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Painter>().materialName);
+            if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !IsInGroup)
+            {
+                IsInGroup = true;
+                EggStackManager.Instance.AddEasterEgg(gameObject);
+            }
+            else if (other.CompareTag("Breaker"))
+            {
+                EggStackManager.Instance.RemoveEasterEgg(gameObject);
+            }
+            else if (other.CompareTag("Painter"))
+            {
+                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Painter>().materialName);
+            }
         }
     }
 }

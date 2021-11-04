@@ -32,14 +32,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        state = GameState.Playing;
-        
         platformManager.CreatePlatform(50);
+    }
+    
+    public void StartPlaying()
+    {
+        state = GameState.Playing;
     }
 
     public bool IsPlaying() {
         return state == GameState.Playing;
     }
+
+
 }
 
 public enum GameState {

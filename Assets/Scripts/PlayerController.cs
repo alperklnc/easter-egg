@@ -7,8 +7,6 @@ namespace DefaultNamespace
     {
         private Rigidbody rb;
         
-        private CharacterController characterController;
-
         Animator animator;
 
         [SerializeField] float horizontalSpeed = 2f;
@@ -16,18 +14,17 @@ namespace DefaultNamespace
 
         [SerializeField] float range = 2f;
 
-        Vector3 moveDirection = Vector3.zero;
-        
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
-            characterController = GetComponent<CharacterController>();
         }
 
         private void Update()
         {
-            characterController.Move(moveDirection * Time.deltaTime);
-            moveDirection = Vector3.zero;
+            if (GameManager.Instance.IsPlaying())
+            {
+                transform.Translate(0, 0, horizontalSpeed * Time.deltaTime);
+            }
         }
 
         public void Move(float horizontalInput) {
@@ -45,7 +42,7 @@ namespace DefaultNamespace
 
                 transform.position = position;
 
-                moveDirection = new Vector3(horizontalInput * verticalSpeed, 0, horizontalSpeed);
+                transform.Translate(horizontalInput * verticalSpeed * Time.deltaTime, 0, 0);
             }
         }
     }
