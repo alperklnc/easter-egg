@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace;
 using Managers;
 using Services;
@@ -24,6 +25,11 @@ namespace EasterEgg
             {
                 GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Painter>().materialName);
             }
+        }
+
+        private void OnDestroy()
+        {
+            Debug.Log("Destroyed");
         }
     }
 }

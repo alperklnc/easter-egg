@@ -53,8 +53,14 @@ namespace Managers
 
         public void RemoveEasterEgg(GameObject easterEgg)
         {
-            if(!eggList.Remove(easterEgg))
+            if (eggList.Remove(easterEgg))
+            {
+                Destroy(easterEgg);
+            }
+            else
+            {
                 Debug.Log("Couldn't remove " + easterEgg);
+            }
         }
 
         #endregion
