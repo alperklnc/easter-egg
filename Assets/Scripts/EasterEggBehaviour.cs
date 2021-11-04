@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class EasterEggBehaviour : MonoBehaviour
 {
-    private bool isInGroup = false;
+    public bool IsInGroup { get; set; } = false;
     
     private void OnTriggerEnter(Collider other)
     {
-        if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !isInGroup)
+        if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !IsInGroup)
         {
-            isInGroup = true;
+            IsInGroup = true;
             GeneralController.Instantiate().AddEasterEgg(gameObject);
         }
         
@@ -20,15 +20,5 @@ public class EasterEggBehaviour : MonoBehaviour
         {
             GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Painter>().materialName);
         }
-    }
-
-    public bool IsInGroup()
-    {
-        return isInGroup;
-    }
-    
-    public void SetIsInGroup(bool isInGroup)
-    {
-        this.isInGroup = isInGroup;
     }
 }
