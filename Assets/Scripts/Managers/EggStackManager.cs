@@ -9,8 +9,10 @@ namespace Managers
     
         [SerializeField] GameObject player;
     
-        [SerializeField] float baseDistance = 0.6f;
+        [SerializeField] float easterEggDistance = 0.6f;
         [SerializeField] float baseSmoothness = 20f;
+        
+        [SerializeField] private float eggVerticalRotationSpeed;
     
         private GameObject tail;
         private static List<GameObject> eggList;
@@ -46,8 +48,9 @@ namespace Managers
             if (tail == null) tail = player;
 
             eggList.Add(easterEgg);
-            easterEggMovement.Distance = baseDistance * eggList.Count;
-            easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + baseDistance * eggList.Count);
+            easterEggMovement.Distance = easterEggDistance * eggList.Count;
+            easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + easterEggDistance * eggList.Count);
+            easterEgg.transform.rotation = Quaternion.Euler(0, -90, 90);
             tail = easterEgg;
         }
 
@@ -77,7 +80,7 @@ namespace Managers
             foreach(GameObject egg in eggList)
             {
                 EasterEggMovement easterEggMovement = egg.GetComponent<EasterEggMovement>();
-                easterEggMovement.Movement(player.transform.position);
+                easterEggMovement.Movement(player.transform.position, eggVerticalRotationSpeed);
             } 
         }
 

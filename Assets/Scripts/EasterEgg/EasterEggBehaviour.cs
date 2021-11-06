@@ -8,6 +8,18 @@ namespace EasterEgg
 {
     public class EasterEggBehaviour : MonoBehaviour
     {
+        private Animator animator;
+
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        private void Update()
+        {
+            //transform.Rotate(new Vector3(0,30f, 0) * Time.deltaTime, Space.World);
+        }
+
         public bool IsInGroup { get; set; } = false;
     
         private void OnTriggerEnter(Collider other)
@@ -15,6 +27,7 @@ namespace EasterEgg
             if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !IsInGroup)
             {
                 IsInGroup = true;
+                animator.enabled = false;
                 EggStackManager.Instance.AddEasterEgg(gameObject);
             }
             else if (other.CompareTag("Breaker"))
