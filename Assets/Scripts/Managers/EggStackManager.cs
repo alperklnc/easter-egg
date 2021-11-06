@@ -9,7 +9,8 @@ namespace Managers
         #region Variables
     
         [SerializeField] GameObject player;
-    
+
+        [SerializeField] private float initialGap = 0.3f;
         [SerializeField] float easterEggDistance = 0.6f;
         [SerializeField] float baseSmoothness = 20f;
         
@@ -83,7 +84,7 @@ namespace Managers
             foreach(GameObject egg in eggList)
             {
                 EasterEggMovement easterEggMovement = egg.GetComponent<EasterEggMovement>();
-                easterEggMovement.Movement(player.transform.position, eggVerticalRotationSpeed);
+                easterEggMovement.Movement(player.transform.position, eggVerticalRotationSpeed, eggList.IndexOf(egg));
             } 
         }
 

@@ -42,7 +42,7 @@ namespace EasterEgg
 
         private void OnDestroy()
         {
-            Debug.Log("Destroyed");
+            
         }
     }
 }
