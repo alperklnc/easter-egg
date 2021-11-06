@@ -7,18 +7,19 @@ public class EasterEggMovement : MonoBehaviour
     public float Distance { get; set; } = 0.5f;
     public float SmoothTime { get; set; } = 3f;
     
+    public int EggIndex { get; set; }
+    
     private Vector3 targetPosition = Vector3.zero;
     
     private float xVelocity = 0f;
     
-    public void Movement(Vector3 position, float rotationSpeed, int eggIndex)
+    public void Movement(Vector3 position, float rotationSpeed)
     {
-        float newZ = position.z + Distance;
-        // First egg biraz daha önde olabilir
-        // if (isFirstEgg) newZ += Distance;
+        float newZ = position.z + Distance * (EggIndex + 1);
         targetPosition.Set(position.x, transform.position.y, newZ);
 
-        float newX = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref xVelocity, SmoothTime * eggIndex * Time.deltaTime);
+        float smoothTime = SmoothTime * EggIndex * EggIndex * Time.deltaTime;
+        float newX = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref xVelocity, smoothTime);
         transform.position = new Vector3(newX, targetPosition.y, targetPosition.z);
         
         transform.Rotate(new Vector3(rotationSpeed,0, 0), Space.World);

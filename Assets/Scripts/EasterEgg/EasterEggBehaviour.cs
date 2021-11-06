@@ -14,12 +14,7 @@ namespace EasterEgg
         {
             animator = GetComponent<Animator>();
         }
-
-        private void Update()
-        {
-            //transform.Rotate(new Vector3(0,30f, 0) * Time.deltaTime, Space.World);
-        }
-
+        
         public bool IsInGroup { get; set; } = false;
     
         private void OnTriggerEnter(Collider other)

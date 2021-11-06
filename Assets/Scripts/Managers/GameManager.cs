@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    
     PlatformManager platformManager;
     
     public GameState state;
@@ -32,12 +35,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        platformManager.CreatePlatform(50);
+        platformManager.CreatePlatform(60);
     }
     
     public void StartPlaying()
     {
         state = GameState.Playing;
+    }
+
+    public void StopPlaying()
+    {
+        state = GameState.EndGame;
     }
 
     public bool IsPlaying() {

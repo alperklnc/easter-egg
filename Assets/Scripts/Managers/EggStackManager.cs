@@ -9,8 +9,7 @@ namespace Managers
         #region Variables
     
         [SerializeField] GameObject player;
-
-        [SerializeField] private float initialGap = 0.3f;
+        
         [SerializeField] float easterEggDistance = 0.6f;
         [SerializeField] float baseSmoothness = 20f;
         
@@ -45,12 +44,13 @@ namespace Managers
         public void AddEasterEgg(GameObject easterEgg)
         {
             EasterEggMovement easterEggMovement = easterEgg.AddComponent<EasterEggMovement>();
-            easterEggMovement.SmoothTime = baseSmoothness * (eggList.Count + 1);
-        
+            easterEggMovement.SmoothTime = baseSmoothness;
+            easterEggMovement.Distance = easterEggDistance;
+            
             if (tail == null) tail = player;
 
             eggList.Add(easterEgg);
-            easterEggMovement.Distance = easterEggDistance * eggList.Count;
+            easterEggMovement.EggIndex = eggList.IndexOf(easterEgg);
             easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + easterEggDistance * eggList.Count);
             easterEgg.transform.rotation = Quaternion.Euler(0, -90, 90);
             tail = easterEgg;
@@ -76,7 +76,7 @@ namespace Managers
         {
             MoveEggs();
             
-            player.GetComponent<PlayerController>().Push(eggList.Count > 0);
+            player.GetComponent<PlayerController>().PushAnimation(eggList.Count > 0);
         }
 
         private void MoveEggs()
@@ -84,7 +84,8 @@ namespace Managers
             foreach(GameObject egg in eggList)
             {
                 EasterEggMovement easterEggMovement = egg.GetComponent<EasterEggMovement>();
-                easterEggMovement.Movement(player.transform.position, eggVerticalRotationSpeed, eggList.IndexOf(egg));
+                easterEggMovement.Movement(player.transform.position, eggVerticalRotationSpeed);
+                easterEggMovement.EggIndex = eggList.IndexOf(egg);
             } 
         }
 

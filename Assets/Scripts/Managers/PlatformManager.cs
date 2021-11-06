@@ -6,7 +6,7 @@ public class PlatformManager : MonoBehaviour
 {
     [Header("GameObjects")]
     [SerializeField] GameObject groundParent;
-    [SerializeField] GameObject finish;
+    [SerializeField] GameObject finishParent;
 
     [Header("Prefabs")]
     [SerializeField] GameObject groundPrefab;
@@ -34,14 +34,12 @@ public class PlatformManager : MonoBehaviour
 
             list.Add(ground);
         }
-
-        /*
+        
         // Create Finish Line
-        Vector3 position = new Vector3(length + 0.75f, -1.5f, 0);
-        GameObject finish_ = Instantiate(finishPrefab, position, Quaternion.Euler(-90, 180, 0));
-        finish_.transform.SetParent(finish.transform);
+        Vector3 position = new Vector3(0, 0, length + prefabLength / 2 + 1);
+        GameObject finish = Instantiate(finishPrefab, position, Quaternion.identity);
+        finish.transform.SetParent(finishParent.transform);
 
-        list.Add(finish_);
-        */
+        list.Add(finish);
     }
 }

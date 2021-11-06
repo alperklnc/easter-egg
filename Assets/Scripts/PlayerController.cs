@@ -47,9 +47,23 @@ namespace DefaultNamespace
             }
         }
 
-        public void Push(bool hasEgg)
+        public void PushAnimation(bool hasEgg)
         {
             animator.SetBool("HasEgg", hasEgg);
+        }
+
+        public void EndGameAnimation()
+        {
+            animator.SetTrigger("Dance");
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Finish"))
+            {
+                GameManager.Instance.StopPlaying();
+                EndGameAnimation();
+            }
         }
     }
 }
