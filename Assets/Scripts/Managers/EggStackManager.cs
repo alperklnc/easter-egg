@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace Managers
@@ -73,6 +74,8 @@ namespace Managers
         private void Update()
         {
             MoveEggs();
+            
+            player.GetComponent<PlayerController>().Push(eggList.Count > 0);
         }
 
         private void MoveEggs()
