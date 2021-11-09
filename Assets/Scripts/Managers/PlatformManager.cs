@@ -26,20 +26,23 @@ public class PlatformManager : MonoBehaviour
     }
 
     public void CreatePlatform(int length) {
-        // Create Ground
-        for(int z = -offset; z < length; z+=prefabLength) {
-            Vector3 pos = new Vector3(0, 0, z);
-            GameObject ground = Instantiate(groundPrefab, pos, Quaternion.identity);
-            ground.transform.SetParent(groundParent.transform);
-
-            list.Add(ground);
-        }
-        
-        // Create Finish Line
-        Vector3 position = new Vector3(0, 0, length + prefabLength / 2 + 1);
-        GameObject finish = Instantiate(finishPrefab, position, Quaternion.identity);
-        finish.transform.SetParent(finishParent.transform);
-
-        list.Add(finish);
+        /*
+            // Create Ground
+            for(int z = -offset; z < length; z+=prefabLength) {
+                Vector3 pos = new Vector3(0, 0, z);
+                GameObject ground = Instantiate(groundPrefab, pos, Quaternion.identity);
+                ground.transform.SetParent(groundParent.transform);
+    
+                list.Add(ground);
+            }
+            
+            // Create Finish Line
+            
+            Vector3 position = new Vector3(0, 0, length + prefabLength / 2 + 1);
+            GameObject finish = Instantiate(finishPrefab, position, Quaternion.identity);
+            finish.transform.SetParent(finishParent.transform);
+    
+            list.Add(finish);
+            */
     }
 }

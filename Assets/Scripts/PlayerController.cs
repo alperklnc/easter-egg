@@ -24,7 +24,7 @@ namespace DefaultNamespace
             animator.SetBool("IsPlaying", GameManager.Instance.IsPlaying());
             if (GameManager.Instance.IsPlaying())
             {
-                transform.Translate(0, 0, horizontalSpeed * Time.deltaTime);
+                transform.Translate(0, 0, verticalSpeed * Time.deltaTime);
             }
         }
 
@@ -43,7 +43,7 @@ namespace DefaultNamespace
 
                 transform.position = position;
 
-                transform.Translate(horizontalInput * verticalSpeed * Time.deltaTime, 0, 0);
+                transform.Translate(horizontalInput * horizontalSpeed * Time.deltaTime, 0, 0);
             }
         }
 
