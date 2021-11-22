@@ -4,9 +4,13 @@ namespace DefaultNamespace
 {
     public enum EggTexture
     {
-        Default,
-        ChocolateBrown,
-        ChocolateLightPink,
-        ChocolateHeavyPink,
+        EmptyWhite,
+        EmptyBrown,
+        EmptyPink,
+        EmptyPurple,
+        StripeBlue,
+        StripeWhite,
+        ZigzagBlue,
+        ZigzagOrange,
     }
 }

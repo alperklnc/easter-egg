@@ -29,9 +29,9 @@ namespace EasterEgg
             {
                 EggStackManager.Instance.RemoveEasterEgg(gameObject);
             }
-            else if (other.CompareTag("Painter"))
+            else if (other.CompareTag("Modifier"))
             {
-                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Painter>().materialName);
+                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Modifier>().materialName);
             }
         }
 

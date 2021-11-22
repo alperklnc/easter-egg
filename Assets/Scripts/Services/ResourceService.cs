@@ -6,7 +6,7 @@ namespace Services
     {
         public static Material GetEggMaterial(string materialName)
         {
-            return Resources.Load<Material>($"Materials/Egg/{materialName}");
+            return Resources.Load<Material>($"Materials/{materialName}");
         }
     }
 }
