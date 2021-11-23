@@ -5,12 +5,15 @@ namespace DefaultNamespace
     public enum EggTexture
     {
         EmptyWhite,
-        EmptyBrown,
+        EmptyBronze,
+        EmptyGold,
+        EmptyDarkBrown,
+        EmptyLightBrown,
         EmptyPink,
         EmptyPurple,
-        StripeBlue,
-        StripeWhite,
-        ZigzagBlue,
-        ZigzagOrange,
+        StripeDarkBrown,
+        StripeGold,
+        Zigzag1,
+        Zigzag2,
     }
 }
