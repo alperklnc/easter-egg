@@ -11,8 +11,10 @@ namespace DefaultNamespace
         EmptyLightBrown,
         EmptyPink,
         EmptyPurple,
-        StripeDarkBrown,
-        StripeGold,
+        HorizontalDarkBrown,
+        HorizontalGold,
+        VerticalDarkBrown,
+        VerticalGold,
         Zigzag1,
         Zigzag2,
     }
