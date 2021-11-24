@@ -2805,6 +2805,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 606614962}
     m_Modifications:
+    - target: {fileID: 5567045691002617713, guid: eb73e4400f8d52d4b9b0e9e659b4f231, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b69370e81179c704bac8e9d191746758, type: 2}
     - target: {fileID: 6215780021814681252, guid: eb73e4400f8d52d4b9b0e9e659b4f231, type: 3}
       propertyPath: m_Name
       value: EasterEgg
