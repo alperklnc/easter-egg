@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Collections;
 using DefaultNamespace;
 using UnityEngine;
+using EasterEgg;
 
 namespace Managers
 {
@@ -12,7 +14,7 @@ namespace Managers
         
         [SerializeField] float easterEggDistance = 0.6f;
         [SerializeField] float baseSmoothness = 20f;
-        
+        private float additionAnimationDelay=100;
         [SerializeField] private float eggVerticalRotationSpeed;
     
         private GameObject tail;
@@ -40,6 +42,7 @@ namespace Managers
         #endregion
 
         #region Stack Adjustment
+        float lastAddedTime = 0;
 
         public void AddEasterEgg(GameObject easterEgg)
         {
@@ -54,6 +57,16 @@ namespace Managers
             easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + easterEggDistance * eggList.Count);
             easterEgg.transform.rotation = Quaternion.Euler(0, -90, 90);
             tail = easterEgg;
+            //StopAllCoroutines();
+            float currentTime = Time.time * 1000;
+            float diff = currentTime - lastAddedTime;
+            Debug.Log(diff);
+            lastAddedTime = currentTime;
+            if(diff >= additionAnimationDelay)
+            {
+                List<GameObject> copyList = new List<GameObject>(eggList);
+                StartCoroutine(AnimateEasterEggs(copyList));
+            }            
         }
 
         public void RemoveEasterEgg(GameObject easterEgg)
@@ -89,6 +102,19 @@ namespace Managers
             } 
         }
 
+        private IEnumerator AnimateEasterEggs(List<GameObject> temp)
+        {
+
+            for(int i = temp.Count - 1; i >= 0; i--)
+            {
+                GameObject egg = temp[i];
+                EasterEggBehaviour easterEggBehaviour = egg.GetComponent<EasterEggBehaviour>();
+                easterEggBehaviour.AddingAnimation();
+                Debug.Log("ResizeEasterEggs");
+                yield return new WaitForSeconds(0.05f);
+            }
+            yield return new WaitForEndOfFrame();
+        }
         #endregion
     }
 }
