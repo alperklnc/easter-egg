@@ -806,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c176c9528aeb1064f9fb53e2ffcf25d1, type: 2}
     - target: {fileID: 2726751233526689082, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: eggTexture
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2726751233526689086, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: m_RootOrder
@@ -1619,10 +1619,10 @@ PrefabInstance:
     - target: {fileID: 2726751233526689080, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8f9828af5835a7f46bd0bf3509822af7, type: 2}
+      objectReference: {fileID: 2100000, guid: 2a182b8f075acc445ad758dc5dc66256, type: 2}
     - target: {fileID: 2726751233526689082, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: eggTexture
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2726751233526689086, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: m_RootOrder
@@ -2207,7 +2207,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 96277b6efbf0d164691ccda8cbbb2bc4, type: 2}
     - target: {fileID: 2726751233526689082, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: eggTexture
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2726751233526689086, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: m_RootOrder
@@ -2405,7 +2405,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a5b63e4b3516ffa46acb500f91bf774d, type: 2}
     - target: {fileID: 2726751233526689082, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: eggTexture
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2726751233526689086, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: m_RootOrder
@@ -2746,7 +2746,7 @@ PrefabInstance:
     - target: {fileID: 2726751233526689080, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c176c9528aeb1064f9fb53e2ffcf25d1, type: 2}
+      objectReference: {fileID: 2100000, guid: 8e28db120bdeb9548b536d8ad0adc74f, type: 2}
     - target: {fileID: 2726751233526689082, guid: bd3baa843590e8045bfd9f6e09fd5a3e, type: 3}
       propertyPath: eggTexture
       value: 8
@@ -3237,6 +3237,10 @@ PrefabInstance:
     - target: {fileID: 6311923352010715867, guid: ca719b61865bf014ab64cd5b9027ebe1, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055050709046654405, guid: ca719b61865bf014ab64cd5b9027ebe1, type: 3}
+      propertyPath: eggTexture
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca719b61865bf014ab64cd5b9027ebe1, type: 3}
@@ -4550,7 +4554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5728805523384951105, guid: 51349a7e5cf32d44a960f8218fe24169, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5728805523384951105, guid: 51349a7e5cf32d44a960f8218fe24169, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4620,7 +4624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5728805523384951105, guid: 7c41e23603ab8c74193c6a6e356425eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5728805523384951105, guid: 7c41e23603ab8c74193c6a6e356425eb, type: 3}
       propertyPath: m_LocalPosition.z
