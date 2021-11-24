@@ -24,4 +24,5 @@ public class EasterEggMovement : MonoBehaviour
         
         transform.Rotate(new Vector3(rotationSpeed,0, 0), Space.World);
     }
+    
 }
