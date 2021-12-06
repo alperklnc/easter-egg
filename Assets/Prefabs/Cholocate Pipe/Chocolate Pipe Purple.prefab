@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 571149828049121134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.85, y: 0, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 2162780155668569652}
   - {fileID: 29159887053132736}
@@ -128,6 +128,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2701691174968016953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479430727505890963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0d4e820252c614b88fad533d355226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eggTexture: 3
+  materialName: 
 --- !u!1001 &571149828070598148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +201,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c835ec489702a064880b482fc1568293, type: 2}
+    - target: {fileID: 2703730575776229527, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
+      propertyPath: m_TagString
+      value: Modifier
+      objectReference: {fileID: 0}
     - target: {fileID: 8298838220578765751, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
       propertyPath: m_Name
       value: Chocolate Simulation
@@ -196,6 +214,11 @@ PrefabInstance:
 --- !u!4 &2162780155668569652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1868603147993217072, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
+  m_PrefabInstance: {fileID: 571149828070598148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2479430727505890963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2703730575776229527, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
   m_PrefabInstance: {fileID: 571149828070598148}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8885537741968407550

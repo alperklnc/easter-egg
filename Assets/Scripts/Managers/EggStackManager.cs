@@ -60,7 +60,7 @@ namespace Managers
             //StopAllCoroutines();
             float currentTime = Time.time * 1000;
             float diff = currentTime - lastAddedTime;
-            Debug.Log(diff);
+
             lastAddedTime = currentTime;
             if(diff >= additionAnimationDelay)
             {
@@ -110,7 +110,6 @@ namespace Managers
                 GameObject egg = temp[i];
                 EasterEggBehaviour easterEggBehaviour = egg.GetComponent<EasterEggBehaviour>();
                 easterEggBehaviour.AddingAnimation();
-                Debug.Log("ResizeEasterEggs");
                 yield return new WaitForSeconds(0.05f);
             }
             yield return new WaitForEndOfFrame();
