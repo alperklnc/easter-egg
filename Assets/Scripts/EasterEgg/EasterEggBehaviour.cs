@@ -71,8 +71,6 @@ namespace EasterEgg
 
             while (timeElapsed < 1f)
             {
-                Debug.Log("Lerp");
-
                 timeElapsed += Time.deltaTime*rate;
                 transform.localScale = Vector3.Lerp(a,b,timeElapsed);
 

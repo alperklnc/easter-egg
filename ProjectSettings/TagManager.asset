@@ -9,6 +9,7 @@ TagManager:
   - EasterEgg
   - Breaker
   - Modifier
+  - EndGameController
   layers:
   - Default
   - TransparentFX
