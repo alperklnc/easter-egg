@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 1311798778723426645}
   - component: {fileID: 6364913157008941354}
   - component: {fileID: 4007457393991175993}
+  - component: {fileID: 4870620486649104509}
   m_Layer: 0
   m_Name: Lollipop
   m_TagString: Untagged
@@ -397,11 +398,23 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4007457393991175998}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.010605077
   m_Center: {x: -0.000000006519258, y: -0.0000000027939686, z: 0.03372746}
+--- !u!114 &4870620486649104509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007457393991175998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561d4cc63ac2c4f46aecb98f94891fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7705062400216971335
 GameObject:
   m_ObjectHideFlags: 0

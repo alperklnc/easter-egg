@@ -22,22 +22,18 @@ namespace EasterEgg
         }
         
         public bool IsInGroup { get; set; } = false;
-    
-        private void OnTriggerEnter(Collider other)
+
+        private void OnCollisionEnter(Collision other)
         {
-            if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !IsInGroup)
+            if((other.gameObject.CompareTag("EasterEgg") || other.gameObject.CompareTag("Player")) && !IsInGroup)
             {
                 IsInGroup = true;
                 animator.enabled = false;
                 EggStackManager.Instance.AddEasterEgg(gameObject);
             }
-            else if (other.CompareTag("Breaker"))
+            else if (other.gameObject.CompareTag("Modifier"))
             {
-                EggStackManager.Instance.RemoveEasterEgg(gameObject);
-            }
-            else if (other.CompareTag("Modifier"))
-            {
-                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Modifier>().materialName);
+                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.gameObject.GetComponent<Modifier>().materialName);
             }
         }
 
