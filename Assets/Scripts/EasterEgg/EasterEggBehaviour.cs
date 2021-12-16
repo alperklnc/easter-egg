@@ -13,6 +13,13 @@ namespace EasterEgg
         private Vector3 minScale;
         private Vector3 maxScale;
         private float scaleLimit = 8;
+        
+        float speed = 4f;
+        float duration = 0.5f;
+
+        public bool IsInGroup { get; set; } = false;
+        
+        [SerializeField] private GameObject ribbon;
 
         private void Awake()
         {
@@ -21,26 +28,12 @@ namespace EasterEgg
             maxScale = new Vector3(minScale.x + scaleLimit, minScale.y + scaleLimit, minScale.z + scaleLimit);
         }
         
-        public bool IsInGroup { get; set; } = false;
-    
-        private void OnTriggerEnter(Collider other)
+        public void ActivateRibbon()
         {
-            if((other.CompareTag("EasterEgg") || other.CompareTag("Player")) && !IsInGroup)
-            {
-                IsInGroup = true;
-                animator.enabled = false;
-                EggStackManager.Instance.AddEasterEgg(gameObject);
-            }
-            else if (other.CompareTag("Breaker"))
-            {
-                EggStackManager.Instance.RemoveEasterEgg(gameObject);
-            }
-            else if (other.CompareTag("Modifier"))
-            {
-                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.GetComponent<Modifier>().materialName);
-            }
+            ribbon.SetActive(true);
         }
 
+        #region Stack Addition Animation
         public void AddingAnimation()
         {
             StartCoroutine(StartResizing());
@@ -51,10 +44,6 @@ namespace EasterEgg
             yield return Lerp(minScale,maxScale,0.1f,duration);
             yield return Lerp(maxScale,minScale,-0.1f,duration);
         }
-
-        float speed = 4f;
-        float duration = 0.5f;
-
 
         private IEnumerator Lerp(Vector3 a, Vector3 b, float y, float time)
         {
@@ -79,10 +68,21 @@ namespace EasterEgg
                 yield return null;
             }
         }
-
-        private void OnDestroy()
+        
+        #endregion
+        
+        private void OnCollisionEnter(Collision other)
         {
-            
+            if((other.gameObject.CompareTag("EasterEgg") || other.gameObject.CompareTag("Player")) && !IsInGroup)
+            {
+                IsInGroup = true;
+                animator.enabled = false;
+                EggStackManager.Instance.AddEasterEgg(gameObject);
+            }
+            else if (other.gameObject.CompareTag("Modifier"))
+            {
+                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.gameObject.GetComponent<Modifier>().materialName);
+            }
         }
     }
 }

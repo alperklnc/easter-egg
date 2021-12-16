@@ -4,11 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Painter
-  - Printer
   - EasterEgg
   - Breaker
   - Modifier
+  - Gate
   - EndGameController
   layers:
   - Default
