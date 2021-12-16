@@ -25,7 +25,6 @@ public class EndGameManager :MonoBehaviour
 
     private IEnumerator Perform()
     {
-        bool isLeft = true;
         while (true)
         {
             List<GameObject> eggList = EggStackManager.Instance.GetEggList();
@@ -42,7 +41,7 @@ public class EndGameManager :MonoBehaviour
                 eggList[i].transform.position = currentEgg.transform.position;
                 currentEgg = eggList[i];
             }
-            isLeft = eggList.Count % 2 == 0;
+            bool isLeft = eggList.Count % 2 == 0;
             Vector3 removedEggPosition = removedEgg.transform.position;
             Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 5);
             StartCoroutine(MoveObject(removedEgg,removedEggPosition,nextPosition,duration));
@@ -54,38 +53,6 @@ public class EndGameManager :MonoBehaviour
 
     float speed = 3f;
     float duration = 2f;
-
-    private IEnumerator MoveEggs()
-    {
-        //GameObject egg = EggStackManager.Instance.RemoveFirstEasterEgg();
-        List<GameObject> eggList = EggStackManager.Instance.GetEggList();
-        float zPos = 0;
-        while (true)
-        {
-            foreach (GameObject egg in eggList)
-            {
-                zPos += 2.5f;
-                Vector3 target = new Vector3(egg.transform.position.x, egg.transform.position.y, egg.transform.position.z + zPos);
-                StartCoroutine(MoveObject(egg, egg.transform.position, target, duration));
-                //egg = EggStackManager.Instance.RemoveFirstEasterEgg();
-                yield return new WaitForSeconds(1);
-            }
-            
-        }
-
-        //List<GameObject> eggList = EggStackManager.Instance.GetEggList();
-
-        while (true)
-        {
-            for(int i = 0; i <eggList.Count; i++)
-            {
-                GameObject eg = eggList[i];
-                eg.transform.Translate(0, 0, 1 * Time.deltaTime);
-
-            }
-        }
-
-    }
 
     
     private IEnumerator MoveObject(GameObject obj, Vector3 from, Vector3 to, float time)
