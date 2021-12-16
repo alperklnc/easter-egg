@@ -1490,6 +1490,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1908832084}
     m_Modifications:
+    - target: {fileID: 7017483678028303077, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017483678028303077, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017483678028303077, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017483678028303077, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017483678028303077, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017483678028303077, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 994aa717dcf85644fb012d1ac43f884b, type: 2}
+    - target: {fileID: 7520587393546799462, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520587393546799462, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_MotionVectors
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520587393546799462, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520587393546799462, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520587393546799462, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858757834201249093, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8427863281629532116, guid: 967e588c8ed1bb741981567d3ceb1ea4, type: 3}
       propertyPath: m_RootOrder
       value: 7
