@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
         return state == GameState.Playing;
     }
 
+    public bool IsEndGame()
+    {
+        return state == GameState.EndGame;
+    }
+
 
 }
 

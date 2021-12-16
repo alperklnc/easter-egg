@@ -26,6 +26,10 @@ namespace DefaultNamespace
             {
                 transform.Translate(0, 0, verticalSpeed * Time.deltaTime);
             }
+            else if(GameManager.Instance.IsEndGame())
+            {
+                animator.SetTrigger("Dance");
+            }
         }
 
         public void Move(float horizontalInput) {

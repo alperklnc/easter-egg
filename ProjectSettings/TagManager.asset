@@ -8,6 +8,7 @@ TagManager:
   - Breaker
   - Modifier
   - Gate
+  - EndGameController
   layers:
   - Default
   - TransparentFX

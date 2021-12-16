@@ -60,7 +60,6 @@ namespace Managers
             //StopAllCoroutines();
             float currentTime = Time.time * 1000;
             float diff = currentTime - lastAddedTime;
-
             lastAddedTime = currentTime;
             if(diff >= additionAnimationDelay)
             {
@@ -81,6 +80,23 @@ namespace Managers
             }
         }
 
+        public GameObject RemoveFirstEasterEgg()
+        {
+            if (eggList.Count > 0)
+            {
+                GameObject egg = eggList[0];
+                eggList.RemoveAt(0);
+                return egg;
+            }
+            return null;
+        }
+
+        public List<GameObject> GetEggList()
+        {
+            List<GameObject> copyList = new List<GameObject>(eggList);
+            return copyList;
+        }
+
         #endregion
 
         #region Stack Movement
@@ -92,6 +108,7 @@ namespace Managers
             player.GetComponent<PlayerController>().PushAnimation(eggList.Count > 0);
         }
 
+        // Potential Listener-Oberver
         private void MoveEggs()
         {
             foreach(GameObject egg in eggList)
