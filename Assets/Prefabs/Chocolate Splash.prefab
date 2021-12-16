@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4822711605735213570}
   - component: {fileID: 4822711605735201710}
   m_Layer: 0
-  m_Name: ChocolateSplash
+  m_Name: Chocolate Splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
