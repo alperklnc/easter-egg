@@ -11,7 +11,7 @@ namespace EasterEgg
         {
             if (other.CompareTag("EasterEgg"))
             {
-                EggStackManager.Instance.RemoveEasterEgg(other.gameObject);
+                
             }
         }
     }

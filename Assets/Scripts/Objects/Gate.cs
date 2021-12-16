@@ -19,7 +19,6 @@ public class Gate : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hereee");
         if (other.CompareTag("EasterEgg"))
         {
             other.GetComponent<EasterEggBehaviour>().ActivateRibbon();
