@@ -79,10 +79,6 @@ namespace EasterEgg
                 animator.enabled = false;
                 EggStackManager.Instance.AddEasterEgg(gameObject);
             }
-            else if (other.gameObject.CompareTag("Modifier"))
-            {
-                GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(other.gameObject.GetComponent<Modifier>().materialName);
-            }
         }
     }
 }

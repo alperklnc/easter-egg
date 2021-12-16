@@ -205,6 +205,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Modifier
       objectReference: {fileID: 0}
+    - target: {fileID: 4635380256537982551, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8298838220578765751, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
       propertyPath: m_Name
       value: Chocolate Simulation
