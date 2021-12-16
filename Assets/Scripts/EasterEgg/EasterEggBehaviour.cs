@@ -80,5 +80,12 @@ namespace EasterEgg
                 EggStackManager.Instance.AddEasterEgg(gameObject);
             }
         }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            Material material = gameObject.GetComponent<MeshRenderer>().material;
+            Debug.Log(material.name);
+        }
+
     }
 }
