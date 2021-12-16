@@ -7,6 +7,10 @@ using Managers;
 public class EndGameManager :MonoBehaviour
 {
     private GameObject player;
+    [SerializeField]
+    private float timeBetweenEggs=0.75f;
+    [SerializeField]
+    private float speed = 3f;
 
     private void Start()
     {
@@ -19,8 +23,19 @@ public class EndGameManager :MonoBehaviour
         GameObject.FindGameObjectWithTag("GameController").GetComponent<InputService>().enabled = false;
         Vector3 current = player.transform.position;
         Vector3 newPos = new Vector3(0, current.y, current.z);
+
+        List<GameObject> eggList = EggStackManager.Instance.GetEggList();
+        ConfigureEggs(eggList);
         StartCoroutine(MoveObject(player,current, newPos, duration));
         StartCoroutine(Perform());
+    }
+
+    private void ConfigureEggs(List<GameObject> eggList)
+    {
+        foreach(GameObject egg in eggList)
+        {
+            egg.GetComponent<Rigidbody>().isKinematic = true;
+        }
     }
 
     private IEnumerator Perform()
@@ -43,15 +58,15 @@ public class EndGameManager :MonoBehaviour
             }
             bool isLeft = eggList.Count % 2 == 0;
             Vector3 removedEggPosition = removedEgg.transform.position;
-            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 5);
+            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 3);
             StartCoroutine(MoveObject(removedEgg,removedEggPosition,nextPosition,duration));
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(timeBetweenEggs);
         }
         yield return new WaitForEndOfFrame();
     }
 
 
-    float speed = 3f;
+    //float speed = 3f;
     float duration = 2f;
 
     
