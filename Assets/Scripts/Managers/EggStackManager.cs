@@ -19,9 +19,11 @@ namespace Managers
     
         private GameObject tail;
         private static List<GameObject> eggList;
-    
+        [SerializeField] GameObject additionText;
+
+
         #endregion
-    
+
         #region Singleton
 
         public static EggStackManager Instance { get; private set; }
@@ -65,8 +67,22 @@ namespace Managers
             {
                 List<GameObject> copyList = new List<GameObject>(eggList);
                 StartCoroutine(AnimateEasterEggs(copyList));
-            }            
+            }
+            UIAdd(easterEgg);
+
         }
+        private void UIAdd(GameObject obj)
+        {
+            if (obj)
+            {
+                Vector3 currentPos = obj.transform.position;
+                Vector3 nextPos = new Vector3(currentPos.x, currentPos.y, currentPos.z + 5);
+                Debug.Log(nextPos.y);
+                GameObject instantiatedText = Instantiate(additionText, nextPos, Quaternion.identity);
+                Destroy(instantiatedText, 1f);
+            }
+        }
+
 
         public void RemoveEasterEgg(GameObject easterEgg)
         {

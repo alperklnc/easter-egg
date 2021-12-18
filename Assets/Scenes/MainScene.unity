@@ -2658,6 +2658,7 @@ MonoBehaviour:
   easterEggDistance: 0.7
   baseSmoothness: 1
   eggVerticalRotationSpeed: 3
+  additionText: {fileID: 2721166289459990378, guid: f6960e0624953654dbf706a571c2be4c, type: 3}
 --- !u!4 &869314876
 Transform:
   m_ObjectHideFlags: 0
