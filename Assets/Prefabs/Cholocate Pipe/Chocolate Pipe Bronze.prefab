@@ -128,20 +128,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1402787901144305727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7066487719808051102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0d4e820252c614b88fad533d355226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eggTexture: 0
-  materialName: 
 --- !u!1001 &4266673871155270387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,31 +245,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2703730575776229527, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
-      propertyPath: m_TagString
-      value: Modifier
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635380256537982551, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8298838220578765751, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
       propertyPath: m_Name
       value: Chocolate Simulation
-      objectReference: {fileID: 0}
-    - target: {fileID: 8298838220578765751, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
 --- !u!4 &6807821061936084793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1868603147993217072, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
-  m_PrefabInstance: {fileID: 5157925070501351177}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7066487719808051102 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2703730575776229527, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
   m_PrefabInstance: {fileID: 5157925070501351177}
   m_PrefabAsset: {fileID: 0}

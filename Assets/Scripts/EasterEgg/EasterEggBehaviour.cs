@@ -19,6 +19,9 @@ namespace EasterEgg
 
         public bool IsInGroup { get; set; } = false;
         
+        public Chocolate ChocolateType { get; set; }
+        public Pattern PatternType { get; set; }
+        
         [SerializeField] private GameObject ribbon;
 
         private void Awake()
@@ -70,6 +73,30 @@ namespace EasterEgg
         }
         
         #endregion
+
+        public void ChangeMaterial(Pattern pattern, Chocolate chocolate)
+        {
+            ChocolateType = chocolate;
+            String chocolateName = ChocolateType.ToString();
+            PatternType = pattern;
+            String patternName = PatternType.ToString();
+            
+            if(ChocolateType == Chocolate.None) chocolateName = String.Empty;
+
+            var materialName = patternName + chocolateName;
+            Debug.Log(materialName);
+            GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(materialName);
+        }
+
+        public void ChangeOnlyPattern(Pattern pattern)
+        {
+            ChangeMaterial(pattern, ChocolateType);
+        }
+
+        public void ChangeOnlyChocolate(Chocolate chocolate)
+        {
+            ChangeMaterial(PatternType, chocolate);
+        }
         
         private void OnCollisionEnter(Collision other)
         {
@@ -83,8 +110,8 @@ namespace EasterEgg
 
         private void OnParticleCollision(GameObject other)
         {
-            Material material = gameObject.GetComponent<MeshRenderer>().material;
-            Debug.Log(material.name);
+            var pattern = other.GetComponent<Modifier>().PatternType;
+            ChangeOnlyPattern(pattern);
         }
 
     }

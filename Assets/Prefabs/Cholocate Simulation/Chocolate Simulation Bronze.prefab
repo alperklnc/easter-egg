@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 527487987573103525}
   - component: {fileID: 1875622234245973926}
   - component: {fileID: 4635380256537982551}
+  - component: {fileID: 1402787901144305727}
   m_Layer: 0
   m_Name: Cube_004
-  m_TagString: Untagged
+  m_TagString: Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,11 +122,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2703730575776229527}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1716286, y: 1.5270987, z: 0.17162871}
   m_Center: {x: -0.0014836602, y: -0.6094053, z: -0.0014836602}
+--- !u!114 &1402787901144305727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703730575776229527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0d4e820252c614b88fad533d355226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chocolate: 1
+  pattern: 0
 --- !u!1 &8298838220578765751
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +154,7 @@ GameObject:
   - component: {fileID: 7035211846271024510}
   m_Layer: 0
   m_Name: Chocolate Simulation Bronze
-  m_TagString: Modifier
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

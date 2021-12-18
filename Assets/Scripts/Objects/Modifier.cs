@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EasterEgg;
 using Services;
 using UnityEngine;
 
@@ -8,21 +9,38 @@ namespace DefaultNamespace
 {
     public class Modifier : MonoBehaviour
     {
-        public EggTexture eggTexture;
+        [SerializeField] Chocolate chocolate;
+        [SerializeField] Pattern pattern;
 
-        public string materialName;
-
-        private void Awake()
+        public Chocolate ChocolateType
         {
-            materialName = eggTexture.ToString();
+            get
+            {
+                return chocolate;
+            }
+            set
+            {
+                chocolate = value;
+            }
+        }
+        
+        public Pattern PatternType
+        {
+            get
+            {
+                return pattern;
+            }
+            set
+            {
+                pattern = value;
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("EasterEgg"))
             {
-                //TODO refoctor
-                other.GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(materialName);
+                other.GetComponent<EasterEggBehaviour>().ChangeMaterial(PatternType, ChocolateType);
             }
         }
     }

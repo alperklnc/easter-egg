@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5004789091509363110}
   - component: {fileID: 5004789091509363111}
   - component: {fileID: 5004789091509363128}
+  - component: {fileID: 6825435220558403688}
   m_Layer: 0
   m_Name: Daisy Particle
-  m_TagString: Untagged
+  m_TagString: Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4729,3 +4730,17 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6825435220558403688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004789091509363129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0d4e820252c614b88fad533d355226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chocolate: 0
+  pattern: 1

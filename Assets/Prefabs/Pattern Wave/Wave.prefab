@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0d4e820252c614b88fad533d355226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eggTexture: 20
-  materialName: 
+  chocolate: 0
+  pattern: 6
 --- !u!1 &1548487091032406463
 GameObject:
   m_ObjectHideFlags: 0
