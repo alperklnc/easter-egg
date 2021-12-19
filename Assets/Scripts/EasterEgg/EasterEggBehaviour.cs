@@ -34,11 +34,13 @@ namespace EasterEgg
         public void ActivateRibbon()
         {
             ribbon.SetActive(true);
+            ResizingAnimation(1.25f);
         }
 
         #region Stack Addition Animation
-        public void AddingAnimation()
+        public void ResizingAnimation(float mult)
         {
+            maxScale *= mult;
             StartCoroutine(StartResizing());
         }
 

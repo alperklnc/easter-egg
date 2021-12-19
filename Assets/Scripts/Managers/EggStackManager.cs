@@ -19,7 +19,8 @@ namespace Managers
     
         private GameObject tail;
         private static List<GameObject> eggList;
-        [SerializeField] GameObject additionText;
+        [SerializeField] private GameObject additionText;
+        [SerializeField] private float textZOffset=3f;
 
 
         #endregion
@@ -51,8 +52,8 @@ namespace Managers
             EasterEggMovement easterEggMovement = easterEgg.AddComponent<EasterEggMovement>();
             easterEggMovement.SmoothTime = baseSmoothness;
             easterEggMovement.Distance = easterEggDistance;
-            
             if (tail == null) tail = player;
+            
 
             eggList.Add(easterEgg);
             easterEggMovement.EggIndex = eggList.IndexOf(easterEgg);
@@ -68,19 +69,16 @@ namespace Managers
                 List<GameObject> copyList = new List<GameObject>(eggList);
                 StartCoroutine(AnimateEasterEggs(copyList));
             }
-            UIAdd(easterEgg);
-
+            UIAdd();
         }
-        private void UIAdd(GameObject obj)
+
+        private void UIAdd()
         {
-            if (obj)
-            {
-                Vector3 currentPos = obj.transform.position;
-                Vector3 nextPos = new Vector3(currentPos.x, currentPos.y, currentPos.z + 5);
-                Debug.Log(nextPos.y);
-                GameObject instantiatedText = Instantiate(additionText, nextPos, Quaternion.identity);
-                Destroy(instantiatedText, 1f);
-            }
+            Vector3 currentPos = player.transform.position;
+            Vector3 nextPos = new Vector3(currentPos.x, currentPos.y, currentPos.z + textZOffset);
+            Debug.Log(nextPos.y);
+            GameObject instantiatedText = Instantiate(additionText, nextPos, Quaternion.identity);
+            Destroy(instantiatedText, 1f);
         }
 
 
@@ -142,7 +140,7 @@ namespace Managers
             {
                 GameObject egg = temp[i];
                 EasterEggBehaviour easterEggBehaviour = egg.GetComponent<EasterEggBehaviour>();
-                easterEggBehaviour.AddingAnimation();
+                easterEggBehaviour.ResizingAnimation(1);
                 yield return new WaitForSeconds(0.05f);
             }
             yield return new WaitForEndOfFrame();

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7987557294174320881}
   - component: {fileID: 7587100327582711033}
   - component: {fileID: 2207374839349315629}
-  - component: {fileID: 7448609867405613199}
   - component: {fileID: 8921759789473224592}
   m_Layer: 0
   m_Name: AdditionText
@@ -96,19 +95,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4283646488
---- !u!114 &7448609867405613199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3961814407799502056}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f870a8611919a404199cc033102970b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    rgba: 4294960151
 --- !u!95 &8921759789473224592
 Animator:
   serializedVersion: 3
