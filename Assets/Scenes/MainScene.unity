@@ -4426,7 +4426,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 424284148311060378, guid: dfec0b92c7368b34688938bb727b3890, type: 3}
       propertyPath: m_Name
-      value: Pattern Wave
+      value: Pattern Wave - Double Pattern
+      objectReference: {fileID: 0}
+    - target: {fileID: 424284148311060378, guid: dfec0b92c7368b34688938bb727b3890, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1901966727803888207, guid: dfec0b92c7368b34688938bb727b3890, type: 3}
       propertyPath: m_RootOrder
@@ -5293,14 +5297,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6151767981105684932, guid: f0701bb3e818ad6428d8204df5c48972, type: 3}
-      propertyPath: chocolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6700082157234592852, guid: f0701bb3e818ad6428d8204df5c48972, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0778f7d4228cf1f4e8a6319813290a27, type: 2}
     - target: {fileID: 7085422590418950552, guid: f0701bb3e818ad6428d8204df5c48972, type: 3}
       propertyPath: m_Name
       value: Chocolate Pool - Double Pool
