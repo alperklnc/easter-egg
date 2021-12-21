@@ -37,7 +37,7 @@ public class EndGameManager :MonoBehaviour
             egg.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
-
+    float nextPlayerZPosition=0f;
     private IEnumerator Perform()
     {
         while (true)
@@ -58,11 +58,21 @@ public class EndGameManager :MonoBehaviour
             }
             bool isLeft = eggList.Count % 2 == 0;
             Vector3 removedEggPosition = removedEgg.transform.position;
-            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 3);
+            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 0.95f);
+            nextPlayerZPosition= player.transform.position.z+1.95f;
             StartCoroutine(MoveObject(removedEgg,removedEggPosition,nextPosition,duration));
-            yield return new WaitForSeconds(timeBetweenEggs);
+            //yield return new WaitForSeconds(timeBetweenEggs);
+            yield return new WaitUntil(()=> player.transform.position.z>=nextPlayerZPosition);
         }
         yield return new WaitForEndOfFrame();
+    }
+
+    private bool isPlayerInPosition(float nextZPos)
+    {
+        float currentZPos = player.transform.position.z;
+        if (currentZPos >= nextZPos)
+            return true;
+        return false;
     }
 
 
