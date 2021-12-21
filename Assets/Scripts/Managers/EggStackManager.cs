@@ -76,7 +76,6 @@ namespace Managers
         {
             Vector3 currentPos = player.transform.position;
             Vector3 nextPos = new Vector3(currentPos.x, currentPos.y, currentPos.z + textZOffset);
-            Debug.Log(nextPos.y);
             GameObject instantiatedText = Instantiate(additionText, nextPos, Quaternion.identity);
             Destroy(instantiatedText, 1f);
         }

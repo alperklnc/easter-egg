@@ -35,7 +35,7 @@ namespace DefaultNamespace
                 pattern = value;
             }
         }
-
+        
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("EasterEgg"))
