@@ -113,7 +113,7 @@ namespace EasterEgg
             if(ChocolateType == Chocolate.None) chocolateName = String.Empty;
 
             var materialName = patternName + chocolateName;
-            //Debug.Log(materialName);
+
             GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(materialName);
         }
 
