@@ -82,10 +82,11 @@ namespace EasterEgg
             String chocolateName = ChocolateType.ToString();
             PatternType = pattern;
             String patternName = PatternType.ToString();
-            
+            Debug.Log(patternName + chocolateName);
             if(ChocolateType == Chocolate.None) chocolateName = String.Empty;
 
             var materialName = patternName + chocolateName;
+            Debug.Log(materialName);
             GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(materialName);
         }
 

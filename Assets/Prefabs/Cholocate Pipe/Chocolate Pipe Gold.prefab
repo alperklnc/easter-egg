@@ -249,6 +249,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1875622234245973926, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7f83c48db4f8694698e9f0422474794, type: 2}
+    - target: {fileID: 7486596059755657959, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
+      propertyPath: chocolate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8298838220578765751, guid: eb9fb3183007623408fe4bd3407705a6, type: 3}
       propertyPath: m_Name
       value: Chocolate Simulation

@@ -40,8 +40,13 @@ namespace DefaultNamespace
         {
             if (other.CompareTag("EasterEgg"))
             {
-                other.GetComponent<EasterEggBehaviour>().ChangeMaterial(PatternType, ChocolateType);
+                ChangeMaterial(other);
             }
+        }
+
+        virtual protected void ChangeMaterial(Collider other)
+        {
+            other.GetComponent<EasterEggBehaviour>().ChangeMaterial(PatternType, ChocolateType);
         }
     }
 }

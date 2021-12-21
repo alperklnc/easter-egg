@@ -43,7 +43,6 @@ public class EndGameManager :MonoBehaviour
     {
         while (true)
         {
-            Debug.Log(player.transform.position.z);
             List<GameObject> eggList = EggStackManager.Instance.GetEggList();
             GameObject removedEgg = EggStackManager.Instance.RemoveFirstEasterEgg();
             GameObject currentEgg = removedEgg;
