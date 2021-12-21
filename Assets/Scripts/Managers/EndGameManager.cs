@@ -7,26 +7,26 @@ using Managers;
 public class EndGameManager :MonoBehaviour
 {
     private GameObject player;
-    [SerializeField]
-    private float timeBetweenEggs=0.75f;
-    [SerializeField]
-    private float speed = 3f;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void Automate()
+    public void GoToCenter()
     {
-        //GameManager.Instance.state = GameState.EndGame;
         GameObject.FindGameObjectWithTag("GameController").GetComponent<InputService>().enabled = false;
         Vector3 current = player.transform.position;
         Vector3 newPos = new Vector3(0, current.y, current.z);
 
         List<GameObject> eggList = EggStackManager.Instance.GetEggList();
         ConfigureEggs(eggList);
+        player.GetComponent<Rigidbody>().isKinematic = true;
         StartCoroutine(MoveObject(player,current, newPos, duration));
+    }
+
+    public void Automate()
+    {
         StartCoroutine(Perform());
     }
 
@@ -37,11 +37,13 @@ public class EndGameManager :MonoBehaviour
             egg.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
+
     float nextPlayerZPosition=0f;
     private IEnumerator Perform()
     {
         while (true)
         {
+            Debug.Log(player.transform.position.z);
             List<GameObject> eggList = EggStackManager.Instance.GetEggList();
             GameObject removedEgg = EggStackManager.Instance.RemoveFirstEasterEgg();
             GameObject currentEgg = removedEgg;
@@ -56,27 +58,19 @@ public class EndGameManager :MonoBehaviour
                 eggList[i].transform.position = currentEgg.transform.position;
                 currentEgg = eggList[i];
             }
+
             bool isLeft = eggList.Count % 2 == 0;
             Vector3 removedEggPosition = removedEgg.transform.position;
-            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 0.95f);
-            nextPlayerZPosition= player.transform.position.z+1.95f;
+            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 0f);
+            nextPlayerZPosition= player.transform.position.z+1.9f;
             StartCoroutine(MoveObject(removedEgg,removedEggPosition,nextPosition,duration));
-            //yield return new WaitForSeconds(timeBetweenEggs);
             yield return new WaitUntil(()=> player.transform.position.z>=nextPlayerZPosition);
         }
         yield return new WaitForEndOfFrame();
     }
 
-    private bool isPlayerInPosition(float nextZPos)
-    {
-        float currentZPos = player.transform.position.z;
-        if (currentZPos >= nextZPos)
-            return true;
-        return false;
-    }
 
-
-    //float speed = 3f;
+    float speed = 3f;
     float duration = 2f;
 
     
@@ -93,8 +87,7 @@ public class EndGameManager :MonoBehaviour
             obj.transform.position = GetNextPosition(obj, nextPos);
             yield return null;
         }
-
-        yield return new WaitForSeconds(1);
+        yield return new WaitForEndOfFrame();
     }
 
     private Vector3 GetNextPosition(GameObject obj,Vector3 nextPos)
