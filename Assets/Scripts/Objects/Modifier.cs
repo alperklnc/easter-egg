@@ -35,13 +35,18 @@ namespace DefaultNamespace
                 pattern = value;
             }
         }
-        
+
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("EasterEgg"))
             {
-                other.GetComponent<EasterEggBehaviour>().ChangeMaterial(PatternType, ChocolateType);
+                ChangeMaterial(other);
             }
+        }
+
+        virtual protected void ChangeMaterial(Collider other)
+        {
+            other.GetComponent<EasterEggBehaviour>().ChangeMaterial(PatternType, ChocolateType);
         }
     }
 }

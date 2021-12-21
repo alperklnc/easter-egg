@@ -43,8 +43,7 @@ GameObject:
   - component: {fileID: 527487987573103525}
   - component: {fileID: 1875622234245973926}
   - component: {fileID: 4635380256537982551}
-  - component: {fileID: 2326718637669289844}
-  - component: {fileID: 1875231625946105065}
+  - component: {fileID: 7486596059755657959}
   m_Layer: 0
   m_Name: Cube_004
   m_TagString: Modifier
@@ -93,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c7f83c48db4f8694698e9f0422474794, type: 2}
+  - {fileID: 2100000, guid: 0778f7d4228cf1f4e8a6319813290a27, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,7 +127,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1716286, y: 1.5270987, z: 0.17162871}
   m_Center: {x: -0.0014836602, y: -0.6094053, z: -0.0014836602}
---- !u!114 &2326718637669289844
+--- !u!114 &7486596059755657959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,26 +136,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2703730575776229527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2acb0568c319470cacbf84dc3e295793, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dbe0adc933e4d3b9c49e3217b74b032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chocolate: 1
   pattern: 0
   splashParticle: {fileID: 152102316428771892}
---- !u!114 &1875231625946105065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2703730575776229527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0d4e820252c614b88fad533d355226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chocolate: 2
-  pattern: 0
 --- !u!1 &8298838220578765751
 GameObject:
   m_ObjectHideFlags: 0
