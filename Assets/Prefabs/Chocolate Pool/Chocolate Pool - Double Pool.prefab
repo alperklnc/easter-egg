@@ -507,6 +507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Chocolate Pool
       objectReference: {fileID: 0}
+    - target: {fileID: 2309650933163752290, guid: edbff8c8e4c145f458d03e0a25fbcdbd, type: 3}
+      propertyPath: chocolate
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3002078042644563698, guid: edbff8c8e4c145f458d03e0a25fbcdbd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

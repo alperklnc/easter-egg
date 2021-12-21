@@ -6,11 +6,16 @@ namespace Objects
 {
     public class ChocolateModifier : Modifier
     {
-        [SerializeField] private ParticleSystem splashParticle;
+        [SerializeField] protected ParticleSystem splashParticle;
 
         protected Material material;
 
         private void Awake()
+        {
+            InitSplashParticle();
+        }
+
+        protected void InitSplashParticle()
         {
             material = GetComponent<MeshRenderer>().material;
             var splashPS = splashParticle.main;
