@@ -3010,7 +3010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1876059356}
   easterEggDistance: 0.7
-  baseSmoothness: 1
+  baseSmoothness: 4
   eggVerticalRotationSpeed: 3
   additionText: {fileID: 2721166289459990378, guid: f6960e0624953654dbf706a571c2be4c, type: 3}
   textZOffset: 10
@@ -3239,7 +3239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8723013960620530695, guid: 2f8aee0d936a4c94b96e0e9b1f0fb6ed, type: 3}
       propertyPath: horizontalSpeed
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f8aee0d936a4c94b96e0e9b1f0fb6ed, type: 3}
