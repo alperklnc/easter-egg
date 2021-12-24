@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 710633408349094622}
   - component: {fileID: 7045125744896606082}
   - component: {fileID: 8241606752190594150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fringe Ribbon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6765496915433411364}
   - component: {fileID: 548254977060388073}
   - component: {fileID: 5618919111918546979}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fringe Ribbon.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 5321967960144597090}
   - component: {fileID: 901943546491394242}
   - component: {fileID: 5247259529636347474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Ribbon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,13 +254,13 @@ GameObject:
   - component: {fileID: 6230300964438475920}
   - component: {fileID: 2637501994048340057}
   - component: {fileID: 6455713344249628515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Base Ribbon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6230300964438475920
 Transform:
   m_ObjectHideFlags: 0
@@ -335,13 +335,13 @@ GameObject:
   - component: {fileID: 3967746957870861323}
   - component: {fileID: 3517637558470391304}
   - component: {fileID: 7017483678028303077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3967746957870861323
 Transform:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4b153e7c97fd0ce4da012fdf070f2351, type: 2}
+  - {fileID: 2100000, guid: 994aa717dcf85644fb012d1ac43f884b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 8980363642696472287}
   - component: {fileID: 5652945753739023869}
   - component: {fileID: 7520587393546799462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 3456031504192482907}
   - component: {fileID: 7949307511708822963}
   - component: {fileID: 3246944845174388567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Center Ribbon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091491870605580969}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -0.023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6230300964438475920}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 8427863281629532116}
   - component: {fileID: 8848924822688687479}
   - component: {fileID: 8246777184885354841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate
   m_TagString: Gate
   m_Icon: {fileID: 0}
