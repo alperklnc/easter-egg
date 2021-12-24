@@ -33,7 +33,7 @@ namespace EasterEgg
         public void ActivateRibbon()
         {
             ribbon.SetActive(true);
-            ResizingAnimation(1.25f);
+            StartResizingAnimation(1.25f);
         }
 
         #region Stack Addition Animation
@@ -41,7 +41,7 @@ namespace EasterEgg
         float throwSpeed = 3f;
         float throwDuration = 2f;
 
-        public void ThrowingAnimation(Vector3 newPos)
+        public void StartThrowingAnimation(Vector3 newPos)
         {
             StartCoroutine(ThrowEgg(newPos, throwDuration));
         }
@@ -65,7 +65,7 @@ namespace EasterEgg
         float resizeSpeed = 4f;
         float resizeDuration = 0.5f;
 
-        public void ResizingAnimation(float mult)
+        public void StartResizingAnimation(float mult)
         {
             maxScale *= mult;
             StartCoroutine(StartResizing());

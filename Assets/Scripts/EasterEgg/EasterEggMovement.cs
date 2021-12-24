@@ -24,5 +24,14 @@ public class EasterEggMovement : MonoBehaviour
         
         transform.Rotate(new Vector3(rotationSpeed,0, 0), Space.World);
     }
-    
+
+
+    public void MoveToward(Vector3 newPos)
+    {
+        float step = 5f * Time.deltaTime; // calculate distance to move
+        transform.position = Vector3.MoveTowards(transform.position, newPos, step);
+        //transform.Translate(0, 0, 3f * Time.deltaTime);
+        //transform.Rotate(new Vector3(3f, 0, 0), Space.World);
+    }
+
 }
