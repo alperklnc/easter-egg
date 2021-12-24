@@ -19,9 +19,12 @@ namespace Managers
     
         private GameObject tail;
         private static List<GameObject> eggList;
-    
+        [SerializeField] private GameObject additionText;
+        [SerializeField] private float textZOffset=3f;
+
+
         #endregion
-    
+
         #region Singleton
 
         public static EggStackManager Instance { get; private set; }
@@ -47,11 +50,11 @@ namespace Managers
         public void AddEasterEgg(GameObject easterEgg)
         {
             EasterEggMovement easterEggMovement = easterEgg.AddComponent<EasterEggMovement>();
+            easterEgg.GetComponent<Rigidbody>().isKinematic = false;
             easterEggMovement.SmoothTime = baseSmoothness;
             easterEggMovement.Distance = easterEggDistance;
-            
             if (tail == null) tail = player;
-
+            
             eggList.Add(easterEgg);
             easterEggMovement.EggIndex = eggList.IndexOf(easterEgg);
             easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + easterEggDistance * eggList.Count);
@@ -65,7 +68,61 @@ namespace Managers
             {
                 List<GameObject> copyList = new List<GameObject>(eggList);
                 StartCoroutine(AnimateEasterEggs(copyList));
-            }            
+            }
+            UIAdd();
+        }
+
+        private void UIAdd()
+        {
+            Vector3 currentPos = player.transform.position;
+            Vector3 nextPos = new Vector3(currentPos.x, currentPos.y, currentPos.z + textZOffset);
+            GameObject instantiatedText = Instantiate(additionText, nextPos, Quaternion.identity);
+            Destroy(instantiatedText, 1f);
+        }
+
+        public int GetIndexOfEgg(GameObject egg)
+        {
+            return eggList.IndexOf(egg);
+        }
+
+        public List<GameObject> GetListFromCurrentEgg(GameObject egg)
+        {
+            int ind = GetIndexOfEgg(egg);
+            if(ind!=-1)
+                return eggList.GetRange(ind,eggList.Count-ind);
+            return null;
+        }
+
+        public void RemovePartOfList(int start,int count)
+        {
+            eggList.RemoveRange(start, count);
+        }
+
+        public void RandomInitializeEggs(List<GameObject> list)
+        {
+            foreach (GameObject egg in list)
+            {
+                Vector3 nextPos = FindAppropriatePoosition(egg);
+                egg.GetComponent<EasterEggBehaviour>().ThrowingAnimation(nextPos);
+            }
+        }
+
+        public Vector3 FindAppropriatePoosition(GameObject obj)
+        {
+            Vector3 nextPos=Vector3.zero;
+            Vector3 currentPlayerPos = player.transform.position;
+            bool isCollided =true;
+            int count= 0;
+            for (; count <= 10 && isCollided; count++)
+            {
+                Vector3 currentPos = obj.transform.position;
+                float zPos = Random.Range(10f, 15f);
+                zPos += currentPlayerPos.z;
+                float xPos = Random.Range(-2f, 2f);
+                nextPos = new Vector3(xPos, currentPos.y + 0.1f, zPos);
+                isCollided = Physics.CheckBox(nextPos, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity, LayerMask.GetMask("Objects"));
+            }
+            return nextPos;
         }
 
         public void RemoveEasterEgg(GameObject easterEgg)
@@ -108,7 +165,6 @@ namespace Managers
             player.GetComponent<PlayerController>().PushAnimation(eggList.Count > 0);
         }
 
-        // Potential Listener-Oberver
         private void MoveEggs()
         {
             foreach(GameObject egg in eggList)
@@ -126,7 +182,7 @@ namespace Managers
             {
                 GameObject egg = temp[i];
                 EasterEggBehaviour easterEggBehaviour = egg.GetComponent<EasterEggBehaviour>();
-                easterEggBehaviour.AddingAnimation();
+                easterEggBehaviour.ResizingAnimation(1);
                 yield return new WaitForSeconds(0.05f);
             }
             yield return new WaitForEndOfFrame();

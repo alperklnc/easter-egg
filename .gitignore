@@ -37,5 +37,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.log
-*.meta
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
 Logs/shadercompiler-UnityShaderCompiler.exe0.log

@@ -13,16 +13,32 @@ public class EndGameManager :MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void Automate()
+    public void GoToCenter()
     {
-        //GameManager.Instance.state = GameState.EndGame;
         GameObject.FindGameObjectWithTag("GameController").GetComponent<InputService>().enabled = false;
         Vector3 current = player.transform.position;
         Vector3 newPos = new Vector3(0, current.y, current.z);
+
+        List<GameObject> eggList = EggStackManager.Instance.GetEggList();
+        ConfigureEggs(eggList);
+        player.GetComponent<Rigidbody>().isKinematic = true;
         StartCoroutine(MoveObject(player,current, newPos, duration));
+    }
+
+    public void Automate()
+    {
         StartCoroutine(Perform());
     }
 
+    private void ConfigureEggs(List<GameObject> eggList)
+    {
+        foreach(GameObject egg in eggList)
+        {
+            egg.GetComponent<Rigidbody>().isKinematic = true;
+        }
+    }
+
+    float nextPlayerZPosition=0f;
     private IEnumerator Perform()
     {
         while (true)
@@ -41,11 +57,13 @@ public class EndGameManager :MonoBehaviour
                 eggList[i].transform.position = currentEgg.transform.position;
                 currentEgg = eggList[i];
             }
+
             bool isLeft = eggList.Count % 2 == 0;
             Vector3 removedEggPosition = removedEgg.transform.position;
-            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 5);
+            Vector3 nextPosition = new Vector3(isLeft ? -1.5f : 1.5f, removedEggPosition.y, removedEggPosition.z + 0f);
+            nextPlayerZPosition= player.transform.position.z+1.9f;
             StartCoroutine(MoveObject(removedEgg,removedEggPosition,nextPosition,duration));
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitUntil(()=> player.transform.position.z>=nextPlayerZPosition);
         }
         yield return new WaitForEndOfFrame();
     }
@@ -68,8 +86,7 @@ public class EndGameManager :MonoBehaviour
             obj.transform.position = GetNextPosition(obj, nextPos);
             yield return null;
         }
-
-        yield return new WaitForSeconds(1);
+        yield return new WaitForEndOfFrame();
     }
 
     private Vector3 GetNextPosition(GameObject obj,Vector3 nextPos)

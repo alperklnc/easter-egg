@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 571149828049121134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.85, y: 0, z: 4}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2162780155668569652}
   - {fileID: 29159887053132736}
@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggTexture: 3
+  chocolate: 4
+  pattern: 0
   materialName: 
 --- !u!1001 &571149828070598148
 PrefabInstance:

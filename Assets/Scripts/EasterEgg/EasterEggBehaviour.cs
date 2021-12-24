@@ -14,10 +14,12 @@ namespace EasterEgg
         private Vector3 maxScale;
         private float scaleLimit = 8;
         
-        float speed = 4f;
-        float duration = 0.5f;
+        
 
         public bool IsInGroup { get; set; } = false;
+        
+        public Chocolate ChocolateType { get; set; }
+        public Pattern PatternType { get; set; }
         
         [SerializeField] private GameObject ribbon;
 
@@ -31,24 +33,54 @@ namespace EasterEgg
         public void ActivateRibbon()
         {
             ribbon.SetActive(true);
+            ResizingAnimation(1.25f);
         }
 
         #region Stack Addition Animation
-        public void AddingAnimation()
+
+        float throwSpeed = 3f;
+        float throwDuration = 2f;
+
+        public void ThrowingAnimation(Vector3 newPos)
         {
+            StartCoroutine(ThrowEgg(newPos, throwDuration));
+        }
+
+        private IEnumerator ThrowEgg(Vector3 toPos,float time)
+        {
+            float timeElapsed = 0f;
+            float rate = (1f / time) * throwSpeed;
+
+            while (timeElapsed < 1f)
+            {
+                timeElapsed += Time.deltaTime * rate;
+
+                Vector3 nextPos = Vector3.Lerp(transform.position, toPos, timeElapsed);
+                gameObject.transform.position = nextPos;
+                yield return null;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+
+        float resizeSpeed = 4f;
+        float resizeDuration = 0.5f;
+
+        public void ResizingAnimation(float mult)
+        {
+            maxScale *= mult;
             StartCoroutine(StartResizing());
         }
 
         private IEnumerator StartResizing()
         {
-            yield return Lerp(minScale,maxScale,0.1f,duration);
-            yield return Lerp(maxScale,minScale,-0.1f,duration);
+            yield return Lerp(minScale,maxScale,0.1f, resizeDuration);
+            yield return Lerp(maxScale,minScale,-0.1f, resizeDuration);
         }
 
         private IEnumerator Lerp(Vector3 a, Vector3 b, float y, float time)
         {
             float timeElapsed = 0f;
-            float rate = (1f / time) * speed;
+            float rate = (1f / time) * resizeSpeed;
             Vector3 current = transform.position;
             float height;
             if (y > 0)
@@ -70,6 +102,30 @@ namespace EasterEgg
         }
         
         #endregion
+
+        public void ChangeMaterial(Pattern pattern, Chocolate chocolate)
+        {
+            ChocolateType = chocolate;
+            String chocolateName = ChocolateType.ToString();
+            PatternType = pattern;
+            String patternName = PatternType.ToString();
+            
+            if(ChocolateType == Chocolate.None) chocolateName = String.Empty;
+
+            var materialName = patternName + chocolateName;
+
+            GetComponent<MeshRenderer>().material = ResourceService.GetEggMaterial(materialName);
+        }
+
+        public void ChangeOnlyPattern(Pattern pattern)
+        {
+            ChangeMaterial(pattern, ChocolateType);
+        }
+
+        public void ChangeOnlyChocolate(Chocolate chocolate)
+        {
+            ChangeMaterial(PatternType, chocolate);
+        }
         
         private void OnCollisionEnter(Collision other)
         {
@@ -80,5 +136,12 @@ namespace EasterEgg
                 EggStackManager.Instance.AddEasterEgg(gameObject);
             }
         }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            var pattern = other.GetComponent<Modifier>().PatternType;
+            ChangeOnlyPattern(pattern);
+        }
+
     }
 }
