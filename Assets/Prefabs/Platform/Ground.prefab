@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6572171711429418760}
   - component: {fileID: 938103493760309658}
   m_Layer: 0
-  m_Name: Right Edge (1)
+  m_Name: Left Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2de6b3a7311ff948a8cf57f72d12602, type: 2}
+  - {fileID: 2100000, guid: 0c5226e4c47a33d44b26280113745da2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -379,7 +379,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2de6b3a7311ff948a8cf57f72d12602, type: 2}
+  - {fileID: 2100000, guid: 0c5226e4c47a33d44b26280113745da2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

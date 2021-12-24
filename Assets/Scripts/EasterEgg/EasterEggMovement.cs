@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,13 +13,13 @@ public class EasterEggMovement : MonoBehaviour
     private Vector3 targetPosition = Vector3.zero;
     
     private float xVelocity = 0f;
-    
+
     public void Movement(Vector3 position, float rotationSpeed)
     {
         float newZ = position.z + Distance * (EggIndex + 1);
         targetPosition.Set(position.x, transform.position.y, newZ);
 
-        float smoothTime = SmoothTime * EggIndex * EggIndex * Time.deltaTime;
+        float smoothTime = (float) (SmoothTime * EggIndex * Math.Log(Math.Sqrt(EggIndex + 1)) * Time.deltaTime);
         float newX = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref xVelocity, smoothTime);
         transform.position = new Vector3(newX, targetPosition.y, targetPosition.z);
         
