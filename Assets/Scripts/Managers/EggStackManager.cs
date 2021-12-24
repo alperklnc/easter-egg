@@ -56,7 +56,7 @@ namespace Managers
             if (tail == null) tail = player;
             
             eggList.Add(easterEgg);
-            easterEggMovement.EggIndex = eggList.IndexOf(easterEgg);
+            easterEggMovement.EggIndex = eggList.Count - 1;
             easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + easterEggDistance * eggList.Count);
             easterEgg.transform.rotation = Quaternion.Euler(0, -90, 90);
             tail = easterEgg;
@@ -95,6 +95,10 @@ namespace Managers
 
         public void RemovePartOfList(int start,int count)
         {
+            if (start > 0)
+                tail = eggList[start - 1];
+            else
+                tail = player;
             eggList.RemoveRange(start, count);
         }
 
@@ -103,7 +107,7 @@ namespace Managers
             foreach (GameObject egg in list)
             {
                 Vector3 nextPos = FindAppropriatePoosition(egg);
-                egg.GetComponent<EasterEggBehaviour>().ThrowingAnimation(nextPos);
+                egg.GetComponent<EasterEggBehaviour>().StartThrowingAnimation(nextPos);
             }
         }
 
@@ -113,7 +117,7 @@ namespace Managers
             Vector3 currentPlayerPos = player.transform.position;
             bool isCollided =true;
             int count= 0;
-            for (; count <= 10 && isCollided; count++)
+            for (; count <= 100 && isCollided; count++)
             {
                 Vector3 currentPos = obj.transform.position;
                 float zPos = Random.Range(10f, 15f);
@@ -125,18 +129,6 @@ namespace Managers
             return nextPos;
         }
 
-        public void RemoveEasterEgg(GameObject easterEgg)
-        {
-            if (eggList.Remove(easterEgg))
-            {
-                Destroy(easterEgg);
-            }
-            else
-            {
-                Debug.Log("Couldn't remove " + easterEgg);
-            }
-        }
-
         public GameObject RemoveFirstEasterEgg()
         {
             if (eggList.Count > 0)
@@ -146,6 +138,11 @@ namespace Managers
                 return egg;
             }
             return null;
+        }
+
+        public void ClearEggList()
+        {
+            eggList.Clear();
         }
 
         public List<GameObject> GetEggList()
@@ -160,9 +157,12 @@ namespace Managers
 
         private void Update()
         {
-            MoveEggs();
-            
-            player.GetComponent<PlayerController>().PushAnimation(eggList.Count > 0);
+            if (GameManager.Instance.IsPlaying())
+            {
+                MoveEggs();
+
+                player.GetComponent<PlayerController>().PushAnimation(eggList.Count > 0);
+            }
         }
 
         private void MoveEggs()
@@ -182,7 +182,7 @@ namespace Managers
             {
                 GameObject egg = temp[i];
                 EasterEggBehaviour easterEggBehaviour = egg.GetComponent<EasterEggBehaviour>();
-                easterEggBehaviour.ResizingAnimation(1);
+                easterEggBehaviour.StartResizingAnimation(1);
                 yield return new WaitForSeconds(0.05f);
             }
             yield return new WaitForEndOfFrame();
