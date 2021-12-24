@@ -95,9 +95,11 @@ namespace Managers
 
         public void RemovePartOfList(int start,int count)
         {
-            Debug.Log(eggList.Count);
+            if (start > 0)
+                tail = eggList[start - 1];
+            else
+                tail = player;
             eggList.RemoveRange(start, count);
-            Debug.Log(eggList.Count);
         }
 
         public void RandomInitializeEggs(List<GameObject> list)
@@ -125,18 +127,6 @@ namespace Managers
                 isCollided = Physics.CheckBox(nextPos, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity, LayerMask.GetMask("Objects"));
             }
             return nextPos;
-        }
-
-        public void RemoveEasterEgg(GameObject easterEgg)
-        {
-            if (eggList.Remove(easterEgg))
-            {
-                Destroy(easterEgg);
-            }
-            else
-            {
-                Debug.Log("Couldn't remove " + easterEgg);
-            }
         }
 
         public GameObject RemoveFirstEasterEgg()

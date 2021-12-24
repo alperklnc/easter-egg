@@ -28,10 +28,8 @@ public class EasterEggMovement : MonoBehaviour
 
     public void MoveToward(Vector3 newPos)
     {
-        float step = 5f * Time.deltaTime; // calculate distance to move
+        float step = 5f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, newPos, step);
-        //transform.Translate(0, 0, 3f * Time.deltaTime);
-        //transform.Rotate(new Vector3(3f, 0, 0), Space.World);
+        transform.Rotate(new Vector3(3f, 0, 0), Space.World);
     }
-
 }
