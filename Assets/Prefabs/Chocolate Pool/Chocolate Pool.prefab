@@ -331,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9066312059742262349}
   m_Layer: 0
-  m_Name: Chocolate Pool - Double Pool
+  m_Name: Chocolate Pool
   m_TagString: Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
