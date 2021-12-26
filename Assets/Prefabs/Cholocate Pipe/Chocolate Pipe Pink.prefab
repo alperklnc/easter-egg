@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0d4e820252c614b88fad533d355226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eggTexture: 2
   chocolate: 3
   pattern: 0
-  materialName: 
 --- !u!1 &7220255376192063623
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c5226e4c47a33d44b26280113745da2, type: 2}
+  - {fileID: 2100000, guid: e2de6b3a7311ff948a8cf57f72d12602, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
