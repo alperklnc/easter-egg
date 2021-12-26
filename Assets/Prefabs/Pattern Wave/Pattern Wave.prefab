@@ -428,6 +428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 246734210021984559, guid: c55123979fb32ef47958e529b9cc5078, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8929595062905512285, guid: c55123979fb32ef47958e529b9cc5078, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -755,6 +759,10 @@ PrefabInstance:
     - target: {fileID: 2463557019243920356, guid: e9b842acae4770e41aaa1229cdf350f4, type: 3}
       propertyPath: m_Name
       value: Right Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463557019243920356, guid: e9b842acae4770e41aaa1229cdf350f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8179070758675162076, guid: e9b842acae4770e41aaa1229cdf350f4, type: 3}
       propertyPath: m_RootOrder
