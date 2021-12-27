@@ -19,4 +19,30 @@ public class CameraController : MonoBehaviour
             transform.position = smoothedPosition;
         }
     }
+
+    float rotationSpeed = 2f;
+    float rotationDuration = 4f;
+
+    public void StartRelocating(Vector3 newPos,Vector3 newRot)
+    {
+        StartCoroutine(Relocate(newPos, newRot, rotationDuration));
+    }
+
+    private IEnumerator Relocate(Vector3 toPos, Vector3 toRot, float time)
+    {
+        float timeElapsed = 0f;
+        float rate = (1f / time) * rotationSpeed;
+
+        while (timeElapsed < 1f)
+        {
+            timeElapsed += Time.deltaTime * rate;
+
+            Vector3 nextPos = Vector3.Lerp(transform.position, toPos, timeElapsed);
+            Vector3 nextRot = Vector3.Lerp(transform.eulerAngles, toRot, timeElapsed);
+            gameObject.transform.position = nextPos;
+            gameObject.transform.eulerAngles = nextRot;
+            yield return null;
+        }
+        yield return new WaitForEndOfFrame();
+    }
 }

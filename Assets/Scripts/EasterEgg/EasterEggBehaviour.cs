@@ -38,8 +38,8 @@ namespace EasterEgg
 
         #region Stack Addition Animation
 
-        float throwSpeed = 3f;
-        float throwDuration = 2f;
+        float throwSpeed = 2f; //3
+        float throwDuration = 4f; //2
 
         public void StartThrowingAnimation(Vector3 newPos)
         {
