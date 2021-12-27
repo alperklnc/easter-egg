@@ -13,8 +13,6 @@ namespace EasterEgg
         private Vector3 minScale;
         private Vector3 maxScale;
         private float scaleLimit = 8;
-        
-        
 
         public bool IsInGroup { get; set; } = false;
         
@@ -38,8 +36,8 @@ namespace EasterEgg
 
         #region Stack Addition Animation
 
-        float throwSpeed = 2f; //3
-        float throwDuration = 4f; //2
+        float throwSpeed = 3f; //3
+        float throwDuration = 2f; //2
 
         public void StartThrowingAnimation(Vector3 newPos)
         {

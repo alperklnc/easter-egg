@@ -60,7 +60,7 @@ namespace Managers
             easterEgg.transform.position = new Vector3(tail.transform.position.x, easterEgg.transform.position.y, player.transform.position.z + easterEggDistance * eggList.Count);
             easterEgg.transform.rotation = Quaternion.Euler(0, -90, 90);
             tail = easterEgg;
-            //StopAllCoroutines();
+
             float currentTime = Time.time * 1000;
             float diff = currentTime - lastAddedTime;
             lastAddedTime = currentTime;
@@ -117,10 +117,10 @@ namespace Managers
             Vector3 currentPlayerPos = player.transform.position;
             bool isCollided =true;
             int count= 0;
-            for (; count <= 100 && isCollided; count++)
+            for (; count <= 1000000 && isCollided; count++)
             {
                 Vector3 currentPos = obj.transform.position;
-                float zPos = Random.Range(10f, 15f);
+                float zPos = Random.Range(10f, 20f);
                 zPos += currentPlayerPos.z;
                 float xPos = Random.Range(-2f, 2f);
                 nextPos = new Vector3(xPos, currentPos.y + 0.1f, zPos);

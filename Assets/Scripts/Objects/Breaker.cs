@@ -36,6 +36,8 @@ namespace EasterEgg
                 {
                     egg.GetComponent<Rigidbody>().isKinematic = true;
                     egg.GetComponent<EasterEggBehaviour>().IsInGroup = false;
+                    //egg.GetComponent<EasterEggMovement>().enabled = false;
+                    Destroy(egg.GetComponent<EasterEggMovement>());
                 }
                 int ind = eggStackManager.GetIndexOfEgg(list[0]);
                 eggStackManager.RemovePartOfList(ind, list.Count);
