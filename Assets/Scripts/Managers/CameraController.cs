@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    float rotationSpeed = 2f;
+    float rotationSpeed = 0.5f;
     float rotationDuration = 4f;
 
     public void StartRelocating(Vector3 newPos,Vector3 newRot)
